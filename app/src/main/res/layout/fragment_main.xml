@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    android:paddingTop="150dp"
+    android:paddingHorizontal="16dp"
+    tools:context=".features.main.ui.MainFragment">
+
+    <EditText
+        android:id="@+id/etInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Введите сумму"
+        android:paddingVertical="8dp"
+        android:paddingStart="12dp"
+        android:inputType="number"
+        android:textColorHint="#66FFFFFF"
+        android:textColor="@color/white"
+        android:fontFamily="monospace"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/style_edittext"
+        app:layout_constraintEnd_toStartOf="@+id/spinner"
+        />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:popupBackground="@color/edit_text"
+        android:entries="@array/currencies_array"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="12dp"
+
+        app:layout_constraintStart_toEndOf="@id/etInput"
+        app:layout_constraintTop_toTopOf="@id/etInput"
+        app:layout_constraintBottom_toBottomOf="@id/etInput"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnConvert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etInput"
+        android:layout_marginTop="16dp"
+        app:cornerRadius="8dp"
+        android:backgroundTint="#414459"
+        android:text="Конвертировать"
+        android:textSize="16sp"/>
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/btnConvert"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
