@@ -60,9 +60,9 @@ class MainFragment : Fragment() {
                 .commit()
         }
         viewModel.course.observe(viewLifecycleOwner){
-            binding.dollar.text= it.get(0)
+            binding.dollar.text= it.get(2)
             binding.tvEuro.text = it.get(1)
-            binding.tvFrank.text = it.get(2)
+            binding.tvFrank.text = it.get(0)
         }
     }
     private fun initListeners(){

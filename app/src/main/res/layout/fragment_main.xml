@@ -76,6 +76,7 @@
         app:layout_constraintTop_toBottomOf="@id/etInput"
         android:layout_marginTop="16dp"
         app:cornerRadius="8dp"
+        android:textColor="@color/white"
         android:backgroundTint="#414459"
         android:text="Конвертировать"
         android:textSize="16sp"/>
