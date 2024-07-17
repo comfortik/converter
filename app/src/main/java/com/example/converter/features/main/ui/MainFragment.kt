@@ -13,7 +13,6 @@ import com.example.converter.databinding.FragmentMainBinding
 import com.example.converter.features.main.presentation.MainViewModel
 import com.example.converter.features.result.ui.ResultFragment
 
-const val API_KEY = "cur_live_ccIQyzRNHGY97e8bzLgAJfFe8nql16TZSyucys0P"
 
 class MainFragment : Fragment() {
 
@@ -75,6 +74,13 @@ class MainFragment : Fragment() {
                 viewModel.loadCurrencies(baseCurrency, currency, value)
             }
         }
+        binding.reverse.setOnClickListener {
+            val saveSelectedItem = binding.spinner.text.toString()
+            binding.spinner.setText(binding.spinnerTwo.text.toString(), false)
+            binding.spinnerTwo.setText(saveSelectedItem, false)
+        }
+
+
     }
     private fun setCourse(){
         viewModel.course()

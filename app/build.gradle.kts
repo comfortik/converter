@@ -4,6 +4,8 @@ plugins {
 }
 
 android {
+
+
     namespace = "com.example.converter"
     compileSdk = 34
 
@@ -13,7 +15,6 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -25,7 +26,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-    }
     buildFeatures{
         viewBinding=true
     }
@@ -38,7 +38,8 @@ android {
     }
 }
 
-dependencies {
+
+    dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -63,4 +64,4 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android.v152)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.material.v130)
-}
+}}

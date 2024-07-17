@@ -14,7 +14,6 @@ class MainViewModel : ViewModel() {
     private val _course = MutableLiveData<List<String>>()
     val course: LiveData<List<String>> = _course
 
-
     fun loadCurrencies(basecurrency:String, currency: String, value: Double) {
         viewModelScope.launch {
             try {
