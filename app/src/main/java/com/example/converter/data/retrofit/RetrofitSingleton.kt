@@ -1,6 +1,5 @@
 package com.example.converter.data.retrofit
 
-import com.example.converter.features.main.ui.API_KEY
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

@@ -39,7 +39,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -61,4 +60,7 @@ dependencies {
     implementation(libs.glide)
     implementation(platform(libs.okhttp.bom))
     implementation(libs.logging.interceptor)
+    implementation(libs.kotlinx.coroutines.android.v152)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.material.v130)
 }

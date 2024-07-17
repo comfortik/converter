@@ -23,22 +23,51 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/style_edittext"
-        app:layout_constraintEnd_toStartOf="@+id/spinner"
+        app:layout_constraintEnd_toStartOf="@+id/m"
         />
-
-    <Spinner
-        android:id="@+id/spinner"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/m"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:spinnerMode="dropdown"
-        android:popupBackground="@color/edit_text"
-        android:entries="@array/currencies_array"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="12dp"
-
         app:layout_constraintStart_toEndOf="@id/etInput"
         app:layout_constraintTop_toTopOf="@id/etInput"
-        app:layout_constraintBottom_toBottomOf="@id/etInput"/>
+        app:layout_constraintBottom_toBottomOf="@id/etInput"
+        app:layout_constraintEnd_toStartOf="@+id/n"
+        app:endIconTint="@color/white"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <AutoCompleteTextView
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            app:boxStrokeWidth="0dp"
+            android:text="RUB"
+            style="@style/CustomAutoCompleteTextView"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/n"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/m"
+        app:layout_constraintTop_toTopOf="@id/etInput"
+        app:layout_constraintBottom_toBottomOf="@id/etInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:endIconTint="@color/white"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <AutoCompleteTextView
+            android:id="@+id/spinner_two"
+            android:layout_width="match_parent"
+            app:boxStrokeWidth="0dp"
+            style="@style/CustomAutoCompleteTextView"
+            android:textColor="@color/white"
+            android:text="USD"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnConvert"
