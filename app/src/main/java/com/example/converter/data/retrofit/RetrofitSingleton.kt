@@ -8,7 +8,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitSingleton {
     private const val BASE_URL: String = "https://api.currencyapi.com/v3/"
-    private const val API_KEY: String = "cur_live_ccIQyzRNHGY97e8bzLgAJfFe8nql16TZSyucys0P"  // Replace with your actual API key
 
     private var instance: Retrofit? = null
 
