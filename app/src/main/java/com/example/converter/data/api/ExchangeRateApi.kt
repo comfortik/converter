@@ -1,7 +1,6 @@
 package com.example.converter.data.api
 
 import com.example.converter.domain.model.CurrencyResponse
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
