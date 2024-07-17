@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="↔"
-        android:textSize="20sp"
+        android:textSize="30dp"
         android:id="@+id/reverse"
         app:layout_constraintStart_toEndOf="@+id/n"
         app:layout_constraintEnd_toStartOf="@+id/m"

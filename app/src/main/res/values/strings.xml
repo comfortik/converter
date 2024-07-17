@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">converter</string>
+    <string name="left_right_arrow">&lt;-></string>
+
 </resources>
