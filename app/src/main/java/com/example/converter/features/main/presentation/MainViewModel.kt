@@ -5,16 +5,30 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.converter.BuildConfig
 import com.example.converter.data.repositories.ExchangeCurrensiesRepository
 import kotlinx.coroutines.launch
-const val API_KEY =  "cur_live_ccIQyzRNHGY97e8bzLgAJfFe8nql16TZSyucys0P"
+const val API_KEY =  BuildConfig.apiKeySave
 class MainViewModel : ViewModel() {
     private val _currencies = MutableLiveData<String>()
     val currencies: LiveData<String> = _currencies
+
     private val _course = MutableLiveData<List<String>>()
     val course: LiveData<List<String>> = _course
 
+    private val _value = MutableLiveData<Double>()
+    val value: LiveData<Double> = _value
+
+    private val _baseCurrency = MutableLiveData<String>()
+    val baseCurrency: LiveData<String> = _baseCurrency
+
+    private val _targetCurrency = MutableLiveData<String>()
+    val targetCurrency: LiveData<String> = _targetCurrency
+
     fun loadCurrencies(basecurrency:String, currency: String, value: Double) {
+        _value.value = value
+        _baseCurrency.value = basecurrency
+        _targetCurrency.value = currency
         viewModelScope.launch {
             try {
                 val response = ExchangeCurrensiesRepository().getCurrencies(
@@ -27,6 +41,7 @@ class MainViewModel : ViewModel() {
                 _currencies.postValue(result.toString())
             } catch (e: Exception) {
                 Log.e("API_ERROR", "Ошибка API: ${e.message}", e)
+                _currencies.postValue("000")
             }
         }
     }
@@ -44,8 +59,5 @@ class MainViewModel : ViewModel() {
             }
         }
     }
-
-
-
 
 }

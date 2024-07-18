@@ -8,13 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.converter.R
 import com.example.converter.databinding.FragmentResultBinding
 import com.example.converter.features.main.ui.MainFragment
 
 class ResultFragment : Fragment() {
-
     private lateinit var binding : FragmentResultBinding
+    private lateinit var callback: OnBackPressedCallback
     companion object {
         private const val ARG_RESULT = "result"
         fun newInstance(result:String) = ResultFragment().apply {
@@ -43,9 +46,19 @@ class ResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.tvResult.text = "Result:\n${result}"
         binding.cross.setOnClickListener {
-            Log.d("btn", "Cross button clicked")
-            parentFragmentManager.beginTransaction().replace(R.id.fragment_container_view, MainFragment()).commit()
+            findNavController().navigateUp()
         }
+        callback = object : OnBackPressedCallback(true ) {
+            override fun handleOnBackPressed() {
+                    findNavController().navigateUp()
 
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        callback.remove()
+    }
+
 }
