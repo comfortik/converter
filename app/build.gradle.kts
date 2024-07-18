@@ -22,7 +22,15 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "apiKeySave", properties.getProperty("apiKey"))
+        val credentialsProperties = Properties().apply {
+            load(FileInputStream(File(rootProject.rootDir, "credentials.properties")))
+        }
+
+        buildConfigField(
+            "String",
+            "API_KEY",
+            "${credentialsProperties.getProperty("API_KEY")}"
+        )
     }
 
     buildTypes {
@@ -77,5 +85,4 @@ android {
 dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-//    implementation(libs.androidx.navigation.safe.args.kotlin)
 }

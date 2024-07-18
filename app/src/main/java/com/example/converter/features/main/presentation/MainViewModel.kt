@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.converter.BuildConfig
 import com.example.converter.data.repositories.ExchangeCurrensiesRepository
 import kotlinx.coroutines.launch
-const val API_KEY =  BuildConfig.apiKeySave
+const val API_KEY =  BuildConfig.API_KEY
 class MainViewModel : ViewModel() {
     private val _currencies = MutableLiveData<String>()
     val currencies: LiveData<String> = _currencies
